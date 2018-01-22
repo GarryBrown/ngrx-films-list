@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Film } from './models';
+import { Store } from '@ngrx/store';
+import * as fromRoot from './store/reducers';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  films$: Observable<any[]>;
+
+  constructor(private store: Store<fromRoot.State>) {
+    this.films$ = store.select(fromRoot.getAllFilms);
+  }
 }
