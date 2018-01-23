@@ -1,5 +1,5 @@
 <main class="container">
-  <h1>Hey!</h1>
-  <app-film-list [films]="films$ | async"></app-film-list>
+  <app-film-list [films]="films$ | async" [label]="'Список фильмов'" (select)="onSelect($event)"></app-film-list>
+  <app-film-selected [film]="selected$ | async"></app-film-selected>
 </main>
 

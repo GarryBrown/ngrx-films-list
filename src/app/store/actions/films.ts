@@ -16,6 +16,6 @@ export class AddOne implements Action {
     constructor(public payload: Film) { }
 }
 
-export type Action = AddOne | Select
+export type Action = AddOne | Select;
 
 

@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import {
+  Component, OnInit, Input, OnChanges, Output,
+  EventEmitter
+} from '@angular/core';
 import { Film } from '../../models';
 
 
@@ -6,7 +9,8 @@ import { Film } from '../../models';
   selector: 'app-film-list',
   template: `
     <div class="list">
-      <app-film-item  *ngFor="let film of films" [film]="film"></app-film-item>
+      <h2>{{label}}</h2>
+      <app-film-item  *ngFor="let film of films" [film]="film" (select)="select.emit($event)"></app-film-item>
     </div>
   `,
   styles: [`
@@ -18,12 +22,14 @@ import { Film } from '../../models';
 })
 export class FilmListComponent implements OnInit, OnChanges {
   @Input() films: Film[];
+  @Input() label: string;
+  @Output() select = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
+
   ngOnChanges(changes) {
-    debugger;
   }
 
 }

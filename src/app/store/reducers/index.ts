@@ -32,16 +32,9 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
     };
 }
 
-/**
- * By default, @ngrx/store uses combineReducers with the reducer map to compose
- * the root meta-reducer. To add more meta-reducers, provide an array of meta-reducers
- * that will be composed to form the root meta-reducer.
- */
 export const metaReducers: MetaReducer<State>[] = [logger];
 
-/**
- * Layout Reducers
- */
+
 export const getFilmState = createFeatureSelector<fromFilms.State>('films');
 
 export const getIds = createSelector(
@@ -53,6 +46,20 @@ export const getFilms = createSelector(
     getFilmState,
     fromFilms.getFilms,
 );
+
+export const getSelected = createSelector(
+    getFilmState,
+    fromFilms.getSelected,
+);
+
+export const getSelectedFilm = createSelector(
+    getSelected,
+    getFilms,
+    (selectedId, films) => {
+        return films[selectedId];
+    }
+);
+
 export const getAllFilms = createSelector(
     getIds,
     getFilms,

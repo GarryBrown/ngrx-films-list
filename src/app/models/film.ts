@@ -1,5 +1,6 @@
 export interface Film {
-    id: number,
-    name: string,
-    description: string
+    id: number;
+    name: string;
+    img: string;
+    description: string;
 }
