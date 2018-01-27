@@ -12,7 +12,7 @@ import * as filmAction from './store/actions/films';
 })
 export class AppComponent {
   films$: Observable<Film[]>;
-  selected$: Observable<any>;
+  selected$: Observable<Film>;
 
   constructor(private store: Store<fromRoot.State>) {
     this.films$ = store.select(fromRoot.getAllFilms);

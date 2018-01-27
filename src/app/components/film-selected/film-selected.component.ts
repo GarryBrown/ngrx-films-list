@@ -4,7 +4,7 @@ import { Film } from '../../models';
 @Component({
   selector: 'app-film-selected',
   template: `
-    <div *ngIf="film">
+    <div *ngIf="film && film.name">
       <h1>{{film.name}}</h1>
       <p>{{film.description}}</p>
       <img src="{{film.img}}" alt="film image">
