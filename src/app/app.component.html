@@ -1,3 +1,4 @@
+<mat-toolbar>Films app</mat-toolbar>
 <main class="container">
   <app-film-list [films]="films$ | async" [label]="'Список фильмов'" (select)="onSelect($event)"></app-film-list>
   <app-film-selected [film]="selected$ | async"></app-film-selected>

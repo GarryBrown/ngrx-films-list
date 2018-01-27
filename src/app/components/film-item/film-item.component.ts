@@ -4,13 +4,16 @@ import { Film } from '../../models';
 @Component({
   selector: 'app-film-item',
   template: `
-    <li (click)="select.emit(film.id)">{{film.name}}</li>
+    <div>{{film.name}}</div>
   `,
-  styles: []
+  styles: [`
+  div {
+    width: 100%;
+    height: 100%;
+  }`]
 })
 export class FilmItemComponent implements OnInit {
   @Input() film: Film;
-  @Output() select = new EventEmitter();
 
   constructor() { }
 
